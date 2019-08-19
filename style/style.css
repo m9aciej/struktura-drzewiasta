@@ -1,0 +1,38 @@
+
+
+ul {
+  list-style-type: none;
+}
+
+    
+.edit::before{
+    content: "\00270E";  
+    color: red;
+    cursor: pointer;
+}
+    
+.caret {
+  cursor: pointer;
+  user-select: none;
+}
+
+/*\01F7A9*/
+.caret::before {
+  content: "\25B6";  
+  color: forestgreen;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
