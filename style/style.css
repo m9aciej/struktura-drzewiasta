@@ -1,16 +1,58 @@
+*{
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+}
+input {
+  background-color: #3CBC8D;
+  border: none;
+  color: white;
+  padding: 7px 16px;
+  margin-right: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+select {
+  margin-right: 2px;
+  background-color: #3CBC8D;
+  border: none;
+  color: white;
+  padding: 7px 16px;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
 ul {
   list-style-type: none;
 }
 
+/* div{
+  height: 70vh;
+  overflow-y: scroll;
+} */
     
 .edit::before{
     content: "\00270E";  
     color: red;
     cursor: pointer;
 }
-    
+
 .caret {
   cursor: pointer;
   user-select: none;
@@ -36,3 +78,25 @@ ul {
   display: block;
 }
 
+.fa-trash{
+  color: red;
+  cursor: pointer;
+
+}
+
+.fa-plus{
+  color: green;
+  cursor: pointer;
+
+}
+.fa-edit{
+  color:blue;
+  cursor: pointer;
+
+}
+
+.fa-arrows-alt{
+  color: orange;
+  cursor: pointer;
+
+}

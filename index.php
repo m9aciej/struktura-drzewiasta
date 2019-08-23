@@ -83,7 +83,7 @@ else{
 //var_dump($obj);
 
 //zamknięcie połączenia z bazą danych
-closeDB($conn);
+// closeDB($conn);
 
 ?>
 
@@ -92,59 +92,23 @@ closeDB($conn);
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="style/style.css">
-   
 </head>
 <body>
 
-<div> 
-<button class="btOpenTree">Rozwin cale drzewo</button>
 
+<button class="btOpenTree">Rozwin cale drzewo</button>
+<button class="sort">Sortuj</button>
+<div>
 <?php 
     
     buildTree(resultToArrayOfObject($result)); 
     
 ?>
-</div> 
- <div>  
-    
-<form action="index.php" method="post">
-nazwa węzła: <select name = "idOption" class="changeName"></select>
-nowa nazwa: <input type="text" name="newName">  
-<button>Zmień nazwę</button>
-</form>
-    
-<form action="index.php" method="post">
-nazwa węzła: <select name = "idOption1" class="changeNode1"></select>   
-nowy węzał: <select name = "idOption2" class="changeNode2"></select>
-<button>Przenieś węzeł</button>
-</form>
-    
 
-<form action="index.php" method="post">
-nazwa węzła: <select name = "idRemoveNode" class="RemoveNode"></select>
-<button onclick="return removeNode();">Usuń węzeł</button>
-</form>
- 
+</div>
 
-<form action="index.php" method="post">
-rodzic nowego węzła: <select name = "idParentNewNode" class="ParentNewNode">
-<option value="0">nowe drzewo</option></select>
-nowa nowego węzła: <input type="text" name="NameNewNode">  
-<button>Dodaj węzał</button>
-</form>
-    
- <form action="index.php" method="post">
-sortuj według: <select name = "sortBy">
-    <option value="ASC">nazwy rosnąco</option>
-    <option value="DESC">nazwy malejąco</option>
-</select>
-<button>Sortuj</button>
-</form>
-</div>     
-  
-    
 <script src="script.js"></script>
 
 </body>
