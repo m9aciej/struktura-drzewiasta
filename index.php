@@ -7,8 +7,8 @@ $conn = connectDB();
 
 //zmiana nazwy węzła lub liścia
 if(isset($_POST['idOption']) && isset($_POST['newName'])){
-    $idOption = $_POST['idOption'];
-    $newName = $_POST['newName'];
+    $idOption = htmlentities($_POST['idOption'],ENT_QUOTES,"UTF-8");
+    $newName = htmlentities($_POST['newName'],ENT_QUOTES,"UTF-8");
     
     if(strlen($newName) <= 250 AND $newName!=""){
         $sql = "UPDATE tree SET name = '{$newName}' WHERE id = '{$idOption}';";
@@ -23,8 +23,8 @@ if(isset($_POST['idOption']) && isset($_POST['newName'])){
 
 //przenoszenie węzła
 if(isset($_POST['idOption1']) && isset($_POST['idOption2'])){
-    $idOption1 = $_POST['idOption1'];
-    $idOption2 = $_POST['idOption2'];
+    $idOption1 = htmlentities($_POST['idOption1'],ENT_QUOTES,"UTF-8");
+    $idOption2 = htmlentities($_POST['idOption2'],ENT_QUOTES,"UTF-8");
     
     $sql = "SELECT * FROM tree";
     $result = $conn->query($sql);
@@ -43,7 +43,7 @@ if(isset($_POST['idOption1']) && isset($_POST['idOption2'])){
 
 //usówanie węzła z liściami:
 if(isset($_POST['idRemoveNode'])){
-    $idRemoveNode = $_POST['idRemoveNode'];
+    $idRemoveNode = htmlentities($_POST['idRemoveNode'],ENT_QUOTES,"UTF-8");
     removeNode($conn,$idRemoveNode);
 }
 
@@ -52,8 +52,8 @@ if(isset($_POST['idRemoveNode'])){
 
 if(isset($_POST['idParentNewNode']) && isset($_POST['NameNewNode'])) {
 	
-    $idParentNewNode = $_POST['idParentNewNode'];
-    $NameNewNode = $_POST['NameNewNode'];
+    $idParentNewNode = htmlentities($_POST['idParentNewNode'],ENT_QUOTES,"UTF-8");
+    $NameNewNode = htmlentities($_POST['NameNewNode'],ENT_QUOTES,"UTF-8");
 
     if(strlen($NameNewNode) <= 250 && $NameNewNode!=""){
         $sql = "INSERT INTO tree(name,parent_id) VALUES ('{$NameNewNode}', '{$idParentNewNode}');";
@@ -67,7 +67,7 @@ if(isset($_POST['idParentNewNode']) && isset($_POST['NameNewNode'])) {
     
 //pobieranie danych z bazy danyach
 if(isset($_POST['sortBy'])){
-    $sortBy = $_POST['sortBy'];
+    $sortBy = htmlentities($_POST['sortBy'],ENT_QUOTES,"UTF-8");
     $sql = "SELECT * FROM tree ORDER BY name ".$sortBy;
     $result = $conn->query($sql);
 }
@@ -100,14 +100,13 @@ else{
 
 <button class="btOpenTree">Rozwin cale drzewo</button>
 <button class="sort">Sortuj</button>
-<div>
+
 <?php 
-    
     buildTree(resultToArrayOfObject($result)); 
     
 ?>
 
-</div>
+
 
 <script src="script.js"></script>
 
